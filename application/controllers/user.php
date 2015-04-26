@@ -1,5 +1,5 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
-
+/*Hello Aminul, in your class there is no constructor, please add a constructor*/
 class user extends CI_Controller {
 
 
