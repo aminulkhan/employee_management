@@ -2,6 +2,9 @@
 /*Hello Aminul, in your class there is no constructor, please add a constructor*/
 class user extends CI_Controller {
 
+	function __construct(){
+		// this is my constructor
+	}
 
 	public function registration()
 	{
