@@ -63,6 +63,11 @@ class User_model extends CI_Model {
 		$this->db->insert('designation', $data);
 	}
 
+	function leave_insert($data = array()){
+		$this->db->insert('emp_leave', $data);
+
+	}
+
 	function get_all_designation(){
 		$this->db->select('*');
 		$this->db->from('designation');
@@ -93,7 +98,7 @@ class User_model extends CI_Model {
 		$this->db->join('designation',"employees.designation_id = designation.designation_id", "left");
 		$this->db->join('department',"employees.department_id = department.department_id", "left");
 		if($emp_id!=NULL)
-			$this->db->where('emp_id',$emp_id);
+			$this->db->where('id',$emp_id);
 
 		$query = $this->db->get();
 		if($query->num_rows() > 0){

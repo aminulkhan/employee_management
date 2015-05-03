@@ -2,10 +2,6 @@
 /*Hello Aminul, in your class there is no constructor, please add a constructor*/
 class user extends CI_Controller {
 
-	function __construct(){
-		// this is my constructor
-	}
-
 	public function registration()
 	{
 		$this->load->library('myvalidation');
@@ -103,6 +99,25 @@ class user extends CI_Controller {
 		$this->user_model->department_insert($data);
 	}
 
+	public function emp_leave(){
+		
+		echo "here";
+		
+		$this->load->view('leave');
+	}
+
+	public function call_leave(){
+		$data = array(
+			'id' => $this->input->post('emp_id'), 
+			'emp_leave_type' => $this->input->post('mydropdown'),
+			'emp_leave_from_date' => $this->input->post('emp_leave_from_date'), 
+			'emp_leave_to_date' => $this->input->post('emp_leave_to_date'),
+			'emp_leave_cause' => $this->input->post('emp_leave_cause'),
+			'emp_leave_approval_person' => $this->input->post('emp_leave_approval_person')
+		);
+		$this->user_model->leave_insert($data);
+	}
+
 
 	public function logout(){
 		$this->session->unset_userdata('id');
@@ -110,6 +125,9 @@ class user extends CI_Controller {
 	}
 
 	public function leave(){
+		if($this->input->post('submit')){
+			$this->call_leave();
+		}
 		$data['all_employees'] = $this->user_model->get_all_employees();
 		$this->load->view('leave', $data);
 	}
@@ -139,7 +157,7 @@ class user extends CI_Controller {
 			'emp_name' => $this->input->post('emp_name'),
 			'designation_id' => $this->input->post('designation_id'),
 			'department_id' => $this->input->post('department_id'),
-			'emp_gender' => $this->input->post('emp_gender'),
+			'emp_gender' => $this->input->post('mygender'),
 			'emp_dob' => $this->input->post('emp_dob'),
 			'emp_grade' => $this->input->post('emp_grade'),
 			'emp_joining_date' => $this->input->post('emp_joining_date'),

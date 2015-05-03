@@ -34,7 +34,7 @@
 			<div class="container">
 				<div class="content">
 				      
-    	<form action='http://localhost/codeigniter/index.php/user/leave' method='POST' accept-charset='UTF-8' class="form">
+    	<form action='http://localhost/employee_management/index.php/user/leave' method='POST' accept-charset='UTF-8' class="form">
           <fieldset>
             	<h1><span></span> Leave Form</h1>
     		  
@@ -45,7 +45,7 @@
 	              		<option value="">Select Employee</option>
 	              	<?php 
 	              		foreach ($all_employees as $key => $value) {
-	              			echo "<option value=".$value->emp_id.">".$value->emp_id."</option>";
+	              			echo "<option value='".$value->id."''>".$value->emp_id."</option>";
 	              		}
 	              	?>
 	              </select>
@@ -80,11 +80,11 @@
 	          <tr>
 	            <td>Leave Type: </td>
 	              	<select name="mydropdown">
-						<option value="Medical Leave">Medical Leave</option>
-						<option value="Annual Leave">Annual Leave</option>
-						<option value="Earned Leave">Earned Leave</option>
-						<option value="Without Pay Leave">Without Pay Leave</option>
-						<option value="Maternity Leave">Maternity Leave</option>
+						<option value="1">Medical Leave</option>
+						<option value="2">Annual Leave</option>
+						<option value="3">Earned Leave</option>
+						<option value="4">Without Pay Leave</option>
+						<option value="5">Maternity Leave</option>
 					</select><br><br>
 	          </tr>
 	          <tr>

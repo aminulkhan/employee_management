@@ -28,7 +28,7 @@
 			<div class="container">
 				<div class="content">
 				      
-    <form action='http://localhost/codeigniter/index.php/user/employees' method='POST' accept-charset='UTF-8' class="form">
+    <form action='<?php echo base_url();?>index.php/user/employees' method='POST' accept-charset='UTF-8' class="form">
         <fieldset>
             	<h1><span></span> Employee Insertion Form</h1>
     		  
@@ -70,9 +70,9 @@
 	            <td>Gender: </td>
 	              	<select name="mygender" id="selectgender">
 						<option value="">Select Gender</option>
-						<option value="Male">Male</option>
-						<option value="Female">Female</option>
-						<option value="Others">Others</option>
+						<option value="1">Male</option>
+						<option value="2">Female</option>
+						<option value="0">Others</option>
 					</select><br><br>
 	          </tr>
 	          <tr>
