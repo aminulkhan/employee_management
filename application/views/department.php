@@ -30,7 +30,8 @@
     <form action='http://localhost/codeigniter/index.php/user/department' method='POST' accept-charset='UTF-8' class="form">
         <fieldset>
             	<h1><span></span> Department Insertion Form</h1>
-    		  
+    		<?php echo validation_errors(); ?>
+			<?php echo form_open('user'); ?>  
 	          <tr>
 	              <td>Department Name: </td>
 	              <td><input type="text" name="department_name" id="department_name"></td>

@@ -2,6 +2,10 @@
 /*Hello Aminul, in your class there is no constructor, please add a constructor*/
 class user extends CI_Controller {
 
+	public function testpage(){
+		$this->template->render();
+	}
+
 	public function registration()
 	{
 		$this->load->library('myvalidation');
@@ -27,11 +31,10 @@ class user extends CI_Controller {
 	}
 
 	public function login(){
-		$this->load->view('login');
 		if($this->input->post('user_login')){
 			$this->do_login();
-
 		}
+		$this->template->render();
 	}
 
 	function do_login(){
@@ -137,7 +140,7 @@ class user extends CI_Controller {
 		echo json_encode($this->user_model->get_all_employees($emp_id));
 	}
 
-	public function employees(){		
+	public function employee(){		
 		$data['all_designation'] = $this->user_model->get_all_designation();
 		$data['all_department'] = $this->user_model->get_all_department();
 		// eikhane sob data er maddhome view e pathaite hobe
@@ -146,12 +149,13 @@ class user extends CI_Controller {
 		// so view e ei 2 ta key normal variable hoye gese....
 		// view e tumi $all_designation and $all_department ei 2 ta normal vabe access korte parba
 		if($this->input->post('submit')){
-			$this->call_employess();
+			$this->save_employee();
 		}
-		$this->load->view('employees', $data); // eikhane multiple variable dewa jay na tai $data array er vitor sob pathaite hoy, tai tumi age jevabe disila oi vabe kaj kore nai
+		//$this->load->view('employees', $data); // eikhane multiple variable dewa jay na tai $data array er vitor sob pathaite hoy, tai tumi age jevabe disila oi vabe kaj kore nai
+		$this->template->render();
 	}
 
-	public function call_employess(){
+	public function save_employee(){
 		$data = array(
 			'emp_id' => $this->input->post('emp_id'),
 			'emp_name' => $this->input->post('emp_name'),
